@@ -1,12 +1,14 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const createError = require("http-errors");
+const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/api/users");
+const profileRouter = require("./routes/api/profile");
+const postsRouter = require("./routes/api/posts");
 //Database config
 const db = require("./config/db");
 mongoose
@@ -17,7 +19,7 @@ mongoose
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.log(err));
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -29,8 +31,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+//Rountes
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/profile", profileRouter);
+app.use("/api/posts", postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
