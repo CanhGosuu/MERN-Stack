@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const bodyParser = require("body-parser");
+const passport = require("passport");
 
+//Routers
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/api/users");
 const profileRouter = require("./routes/api/profile");
@@ -31,7 +34,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//Rountes
+//Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+//Passport middleware
+app.use(passport.initialize());
+//Passport Config
+require("./config/passport")(passport);
+//Routes
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/profile", profileRouter);
