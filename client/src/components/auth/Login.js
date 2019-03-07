@@ -23,6 +23,13 @@ class Login extends Component {
       this.setState({ errors: nextPops.errors });
     }
   }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 

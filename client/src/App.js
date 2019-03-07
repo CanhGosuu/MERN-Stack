@@ -12,7 +12,7 @@ import "./App.css";
 //set token in locals storage for whole app
 import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
-import { SetCurrenttUser } from "./actions/authActions";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
 import store from "./store";
 
 //Check for token
@@ -20,7 +20,15 @@ if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
   const decoded = jwt_decode(localStorage.jwtToken);
   // Set user is authenticated
-  store.dispatch(SetCurrenttUser(decoded));
+  store.dispatch(setCurrentUser(decoded));
+  // Check for expried token
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    store.dispatch(logoutUser());
+
+    //redirect to login
+    window.location.href = "/login";
+  }
 }
 // --------------------------------
 
