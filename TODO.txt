@@ -1,2 +1,23 @@
 create-react-app client
 
+<Provider store={Store}>
+        <BrowserRouter>
+          <div className="App">
+            <Navbar />
+            <Landing />
+            <Footer />
+          </div>
+        </BrowserRouter>
+</Provider>
+
+cái nào mutple nhét hết vào Route
+
+<Provider store={Store}>
+        <BrowserRouter>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </Provider>
