@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import rootReducer from "./reducers";
+import rootReducer from "./reducers"; // vì đặt là index.js nên không cần phải nhảy cụ thể vào trong reducers/index
 
 const initialState = {};
 
