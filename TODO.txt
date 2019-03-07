@@ -23,4 +23,14 @@ cái nào mutple nhét hết vào Route
       </Provider>
 ========================================
 import { withRouter } from "react-router-dom";
-this.pops.history("./") 
+------------
+ this.props.registerUser(newUser, this.props.history);
+---------
+this.pops.history("./link")
+-----------
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Register));
+
+  nhảy sang /link
