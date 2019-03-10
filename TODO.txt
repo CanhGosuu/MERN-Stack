@@ -70,3 +70,19 @@ export default connect(
   sử dụng để format ngày trong react 
   yêu cầu yarn add moment react-moment
   import Moment from 'react-moment';
+============================================
+Lấy params "handle"
+  if (this.props.match.params.handle) {
+  .......
+  }
+
+
+  ===================================
+NOT FOUND 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.profile.profile === null && this.props.profile.loading) {
+      this.props.history.push('/not-found');
+    }
+  }
+
+
