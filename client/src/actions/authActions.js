@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER } from "./actionTypes";
-// This just an easier way than having to put out register uer function and then the dispath function inside of it
+import { clearCurrentProfile } from "./profileActions";
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
@@ -52,4 +52,6 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+  //Remove user profile
+  dispatch(clearCurrentProfile());
 };
