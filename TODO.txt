@@ -34,3 +34,32 @@ export default connect(
 )(withRouter(Register));
 
   nhảy sang /link
+//======================================================
+//EDIT PROFILE
+// lấy dữ liệu từ GLOBALS STATE  
+    componentDidMount() {
+    this.props.getCurrentProfile();
+  } 
+
+// Truyền state sang props
+  const mapStateToProps = state => ({
+  profile: state.profile,
+  errors: state.errors
+});
+  state được chuyển thành props => kích hoạt componentWillReceiveProps và trong đó ta dùng để set ngược lại giá trị cho state HIỆN TẠI của form
+  
+    componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+
+    if (nextProps.profile.profile) {
+      const profile = nextProps.profile.profile;
+      ........
+    }
+
+    // Set component fields state
+      this.setState({
+        ...
+      })
+  }
