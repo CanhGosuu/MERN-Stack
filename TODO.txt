@@ -33,7 +33,8 @@ export default connect(
   mapDispatchToProps
 )(withRouter(Register));
 
-  nhảy sang /link
+ //NHẢY SANG LINK MỚI  CÓ TRONG HISTORY /link
+  nếu không cần nhảy redirect trong history thì không cần phải bao trong withRouter()
 //======================================================
 //EDIT PROFILE
 // lấy dữ liệu từ GLOBALS STATE  
@@ -63,3 +64,9 @@ export default connect(
         ...
       })
   }
+
+
+  ==========================
+  sử dụng để format ngày trong react 
+  yêu cầu yarn add moment react-moment
+  import Moment from 'react-moment';
