@@ -1,2 +1,2 @@
 # MERN-Stack
-Mongo, ExpressJS, ReactJS, NodeJS
+Mongo, ExpressJS, ReactJS, Redux.
