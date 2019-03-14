@@ -1,4 +1,8 @@
 create-react-app client
+=================================================
+đặt exact trong App.js để render chính
+ <Route exact path="/" component={Landing} />
+=================================================
 
 <Provider store={Store}>
         <BrowserRouter>
@@ -86,3 +90,35 @@ NOT FOUND
   }
 
 
+============================================
+ Đặt Spinner
+  if (post === null || loading || Object.keys(post).length === 0) {
+      postContent = <Spinner />;
+    } else {
+      postContent = (
+        <div>
+          <PostItem post={post} showActions={false} />
+          <CommentForm postId={post._id} />
+          <CommentFeed postId={post._id} comments={post.comments} />
+        </div>
+      );
+    }
+
+====================================
+Sử dụng params
+
+
+    <Switch>
+      <PrivateRoute exact path="/post/:id" component={Post} />
+    </Switch>
+--------------
+  componentDidMount() {
+    this.props.getPost(this.props.match.params.id);
+  }
+
+==================================================
+Set default props
+
+  PostItem.defaultProps = {
+    showActions: true
+  };
