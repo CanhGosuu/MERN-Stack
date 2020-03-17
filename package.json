@@ -12,7 +12,7 @@
   "dependencies": {
     "bcryptjs": "~2.4.3",
     "body-parser": "^1.18.3",
-    "concurrently": "^4.1.0",
+    "concurrently": "^5.0.1",
     "cookie-parser": "^1.4.4",
     "debug": "~4.1.1",
     "ejs": "~2.6.1",
