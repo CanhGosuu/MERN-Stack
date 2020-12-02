@@ -17,7 +17,7 @@
     "debug": "~4.1.1",
     "ejs": "~2.6.1",
     "express": "~4.16.4",
-    "gravatar": "^1.8.0",
+    "gravatar": "^1.8.1",
     "http-errors": "~1.7.2",
     "jsonwebtoken": "^8.5.0",
     "mongoose": "^5.4.19",
